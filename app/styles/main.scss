@@ -1,0 +1,74 @@
+@import "compass/css3";
+@import "typography";
+@import "fontello/icons-embedded";
+
+*, *:before, *:after {
+    @include box-sizing(border-box);
+ }
+
+body {
+    background: #fafafa;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+header {
+    border-bottom: 1em solid #333;
+    padding: 1em 0;
+    text-align: right;
+    .me { width: 15%; vertical-align: bottom; }
+    a { color: #333; text-decoration: none; }
+    .icon {
+        font-weight: 400;
+        font-size: 0.8em;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        padding: 0.5em;
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        @media (min-width: 340px) {
+            font-size: 1em;
+        }
+
+        @media (min-width: 490px) {
+            font-size: 1.5em;
+        }
+    }
+}
+
+
+
+header, .main, footer {
+    margin: 0 auto;
+}
+
+
+.main section {
+    h2:before { content: '/'; font-size: 3em; margin:0 -0.1em;}
+    .timespan { font-size: 0.8em; color: #ccc; }
+    .icon { font-size: 1.2em; color: #333; }
+    .item { padding: 0 0 1em 0; }
+}
+
+
+@media screen and (max-width: 760px) {
+    header, .main {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 761px) {
+    header, .main {
+        width: 60%;
+    }
+}
