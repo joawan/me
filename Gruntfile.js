@@ -357,6 +357,33 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
+        },
+
+        aws: grunt.file.readJSON('aws.json'),
+        aws_s3: {
+            options: {
+                accessKeyId: '<%= aws.AWSAccessKeyId %>',
+                secretAccessKey: '<%= aws.AWSSecretKey %>',
+                region: 'eu-west-1',
+                uploadConcurrency: 5,
+                downloadConcurrency: 5
+            },
+            production: {
+                options: {
+                    bucket: '<%= aws.AWSS3Bucket %>',
+                    differential: true,
+                    /*params: {
+                        ContentEncoding: 'gzip'
+                    }*/
+                    /*
+                    mime: {
+                        'dist/assets/production/LICENCE': 'text/plain'
+                    }*/
+                },
+                files: [
+                    {expand: true, cwd: 'dist/', src: ['**/*'], dest: './'}
+                ]
+            }
         }
     });
 
@@ -409,6 +436,12 @@ module.exports = function (grunt) {
         'rev',
         'usemin',
         'htmlmin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        //'compress',
+        'aws_s3:production'
     ]);
 
     grunt.registerTask('default', [
