@@ -137,19 +137,6 @@ module.exports = function (grunt) {
             }
         },
 
-
-        fontello: {
-            dist: {
-                options: {
-                    config  : '<%= yeoman.app %>/vendor/fontello/config.json',
-                    fonts   : '<%= yeoman.app %>/styles/font',
-                    styles  : '<%= yeoman.app %>/styles/fontello',
-                    sass    : true,
-                    force   : true
-                }
-            }
-        },
-
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
@@ -158,11 +145,11 @@ module.exports = function (grunt) {
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/font',
+                fontsDir: '<%= yeoman.app %>/styles/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/styles/font',
+                httpFontsPath: '/styles/fonts',
                 relativeAssets: false,
                 assetCacheBuster: false
             },
@@ -425,7 +412,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
-        'fontello:dist',
         'concurrent:dist',
         'autoprefixer',
         'concat',

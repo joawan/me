@@ -1,0 +1,29 @@
+@import "compass/css3/";
+
+@include font-face("icons", font-files("icons.woff", "icons.ttf", "icons.svg"), false, normal, normal);
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin: 0 .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+}
+
+.icon-clock:before { content: '\e800'; } /* '' */
+.icon-graduation-cap:before { content: '\e802'; } /* '' */
+.icon-award:before { content: '\e801'; } /* '' */
+.icon-at:before { content: '\e803'; } /* '' */
+.icon-call:before { content: '\e807'; } /* '' */
+.icon-linkedin:before { content: '\e806'; } /* '' */
+.icon-twitter:before { content: '\e805'; } /* '' */
+.icon-email:before { content: '\e808'; } /* '' */
+.icon-facebook:before { content: '\e80a'; } /* '' */
+.icon-github-circled:before { content: '\e809'; } /* '' */
