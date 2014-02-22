@@ -51,7 +51,10 @@ header {
     padding: 1em 0;
     text-align: right;
     .me { width: 15%; vertical-align: bottom; }
-    a { color: #333; text-decoration: none; }
+    a {
+        color: #333; text-decoration: none;
+        &:hover { text-decoration: none; }
+    }
     .icon {
         font-weight: 400;
         font-size: 0.8em;
