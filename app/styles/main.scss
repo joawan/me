@@ -34,12 +34,6 @@ blockquote {
     }
 }
 
-em {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
 a {
     color: #777;
     text-decoration: none;
@@ -50,7 +44,12 @@ header {
     border-bottom: 1em solid #333;
     padding: 1em 0;
     text-align: right;
-    .me { width: 15%; vertical-align: bottom; }
+    .me {
+        width: 15%; vertical-align: bottom;
+        @media print {
+            float: right;
+        }
+    }
     a {
         color: #333; text-decoration: none;
         &:hover { text-decoration: none; }
@@ -75,11 +74,36 @@ header {
         @media (min-width: 490px) {
             font-size: 1.5em;
         }
+
+        @media print {
+            font-size: .6em;
+            text-align: left;
+            display: inline-block;
+            width: 49%;
+            &:after {
+                content: " " attr(href) "";
+            }
+        }
+    }
+    @media print {
+        text-align: left;
     }
 }
 
 footer {
     padding: 3em;
+    .author {
+        display: block;
+        text-align: right;
+        font-style: italic;
+        color: #777;
+        &:before {
+            content: "- ";
+        }
+    }
+    @media print {
+        display: none;
+    }
 }
 
 header, .main, footer {
@@ -93,14 +117,14 @@ header, .main, footer {
 
 .main section {
     h2:before { content: '/'; font-size: 3em; margin:0 -0.1em;}
-    .timespan, .award {
+    .info, .timespan, .award {
         font-size: 0.8em; color: #ccc; display: block; margin-right: 2em;
         @media (min-width: 690px) {
             display: inline-block;
         }
     }
     .icon { font-size: 1.2em; color: #333; }
-    .item { padding: 0 0 3em 0; }
+    .item { padding: 0 0 3em 0; page-break-inside:avoid; }
     .title {
         margin-left: 3em; position: relative;
         .icon {
