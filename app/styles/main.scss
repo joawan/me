@@ -2,6 +2,9 @@
 @import "typography";
 @import "icons";
 
+$primary-text-color: #333;
+$secondary-text-color: #999;
+
 *, *:before, *:after {
     @include box-sizing(border-box);
  }
@@ -15,12 +18,12 @@ blockquote {
     position: relative;
     margin: 3em 1em 2em 1em;
     font-size: .8em;
-    color: #ccc;
+    color: $secondary-text-color;
     &:before {
         content: open-quote;
         font-size: 3em;
         font-family: "Trebuchet MS", Georgia, serif;
-        color: #333;
+        color: $primary-text-color;
         position: absolute;
         top: -.5em;
         left: -.5em;
@@ -41,7 +44,7 @@ a {
 }
 
 header {
-    border-bottom: 1em solid #333;
+    border-bottom: 1em solid $primary-text-color;
     padding: 1em 0;
     text-align: right;
     .me {
@@ -51,7 +54,8 @@ header {
         }
     }
     a {
-        color: #333; text-decoration: none;
+        color: $primary-text-color;
+        text-decoration: none;
         &:hover { text-decoration: none; }
     }
     .icon {
@@ -63,7 +67,7 @@ header {
         padding: 0.5em;
 
         &:hover {
-            background-color: #333;
+            background-color: $primary-text-color;
             color: #fff;
         }
 
@@ -96,7 +100,7 @@ footer {
         display: block;
         text-align: right;
         font-style: italic;
-        color: #777;
+        color: $secondary-text-color;
         &:before {
             content: "- ";
         }
@@ -118,12 +122,12 @@ header, .main, footer {
 .main section {
     h2:before { content: '/'; font-size: 3em; margin:0 -0.1em;}
     .info, .timespan, .award {
-        font-size: 0.8em; color: #ccc; display: block; margin-right: 2em;
+        font-size: 0.8em; color: $secondary-text-color; display: block; margin-right: 2em;
         @media (min-width: 690px) {
             display: inline-block;
         }
     }
-    .icon { font-size: 1.2em; color: #333; }
+    .icon { font-size: 1.2em; color: $primary-text-color; }
     .item { padding: 0 0 3em 0; page-break-inside:avoid; }
     .title {
         margin-left: 3em; position: relative;
@@ -136,8 +140,10 @@ header, .main, footer {
 }
 
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+    margin: 0;
+    padding: 1em 0;
+    text-align: center;
 }
