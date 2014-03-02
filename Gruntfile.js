@@ -349,26 +349,33 @@ module.exports = function (grunt) {
         aws: grunt.file.readJSON('aws.json'),
         aws_s3: {
             options: {
+                bucket: '<%= aws.AWSS3Bucket %>',
                 accessKeyId: '<%= aws.AWSAccessKeyId %>',
                 secretAccessKey: '<%= aws.AWSSecretKey %>',
                 region: 'eu-west-1',
                 uploadConcurrency: 5,
-                downloadConcurrency: 5
+                downloadConcurrency: 5,
+                //differential: true
             },
-            production: {
+            assets: {
                 options: {
-                    bucket: '<%= aws.AWSS3Bucket %>',
-                    differential: true,
-                    /*params: {
-                        ContentEncoding: 'gzip'
-                    }*/
-                    /*
-                    mime: {
-                        'dist/assets/production/LICENCE': 'text/plain'
-                    }*/
+                    params: {
+                        Expires: new Date('2025-01-01')
+                    }
                 },
                 files: [
-                    {expand: true, cwd: 'dist/', src: ['**/*'], dest: './'}
+                    {expand: true, cwd: 'dist/', src: ['**/*.!(html)'], dest: './'}
+                ]
+            },
+            html: {
+                options: {
+                    mime: {
+                        'dist/index.html': 'text/html; charset=utf-8',
+                        'dist/404.html': 'text/html; charset=utf-8'
+                    }
+                },
+                files: [
+                    {expand: true, cwd: 'dist/', src: ['**/*.html'], dest: './'}
                 ]
             }
         }
@@ -427,7 +434,7 @@ module.exports = function (grunt) {
     grunt.registerTask('deploy', [
         'build',
         //'compress',
-        'aws_s3:production'
+        'aws_s3'
     ]);
 
     grunt.registerTask('default', [
