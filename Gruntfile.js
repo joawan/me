@@ -360,7 +360,7 @@ module.exports = function (grunt) {
             assets: {
                 options: {
                     params: {
-                        Expires: new Date('2025-01-01')
+                        CacheControl: 'no-transform,public,max-age=31536000'
                     }
                 },
                 files: [
