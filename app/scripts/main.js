@@ -1,6 +1,5 @@
-'use strict';
-
 (function() {
+    'use strict';
     var quoutes = [
         {
             author: 'Winston Churchill',
