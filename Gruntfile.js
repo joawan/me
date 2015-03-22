@@ -346,16 +346,15 @@ module.exports = function (grunt) {
             ]
         },
 
-        aws: grunt.file.readJSON('aws.json'),
         aws_s3: {
             options: {
-                bucket: '<%= aws.AWSS3Bucket %>',
-                accessKeyId: '<%= aws.AWSAccessKeyId %>',
-                secretAccessKey: '<%= aws.AWSSecretKey %>',
+                bucket: 'joakimwanggren.se',
+                accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+                secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
                 region: 'eu-west-1',
                 uploadConcurrency: 5,
-                downloadConcurrency: 5,
-                //differential: true
+                downloadConcurrency: 5
+                differential: true
             },
             assets: {
                 options: {
