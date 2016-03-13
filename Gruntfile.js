@@ -353,7 +353,7 @@ module.exports = function (grunt) {
                 secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
                 region: 'eu-west-1',
                 uploadConcurrency: 5,
-                downloadConcurrency: 5
+                downloadConcurrency: 5,
                 differential: true
             },
             assets: {
