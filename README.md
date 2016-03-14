@@ -1,24 +1,19 @@
 # /me
 
-Built with [Yeoman webapp generator](https://github.com/yeoman/generator-webapp), using [grunt](http://gruntjs.com/), [bower](http://bower.io/) and [compass](http://compass-style.org/).
+Built with [Yeoman webapp generator](https://github.com/yeoman/generator-webapp), using [gulp](http://gulpjs.com/) and [libsass](http://sass-lang.com/libsass).
 
 ### Tasks
 ```
-$ grunt serve
+$ gulp serve
 ```
  Setups server, watchers and livereload for faster coding
 
 ```
-$ grunt test
-```
- Runs tests
-
-```
-$ grunt build
+$ gulp build
 ```
  Builds, concats, minifies, ..., to dist directory
 
 ```
-$ grunt deploy
+$ gulp deploy
 ```
- Builds, concats, minifies, ..., to dist directory, and then deploys to S3. Requires aws,json file.
+ Builds, concats, minifies, ..., to dist directory, and then deploys to S3.

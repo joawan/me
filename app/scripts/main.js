@@ -23,7 +23,7 @@
         }
     ];
 
-    var random = Math.floor((Math.random()*quoutes.length)),
+    var random = Math.floor((Math.random() * quoutes.length)),
         quote = quoutes[random],
         template = '<blockquote>{quote}<span class="author">{author}</span></blockquote>';
     document.getElementsByTagName('footer')[0].innerHTML = template.replace('{quote}', quote.quote).replace('{author}', quote.author);
