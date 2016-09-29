@@ -3,7 +3,7 @@
     var quoutes = [
         {
             author: 'Winston Churchill',
-            quote: 'Criticism may not be agreeable, but it is necessary. It fulfils the same function as pain in the human body. It calls attention to an unhealthy state of things.'
+            quote: 'Criticism may not be agreeable, but it is necessary. It fulfills the same function as pain in the human body. It calls attention to an unhealthy state of things.'
         },
         {
             author: 'Ayn Rand',
