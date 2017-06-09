@@ -114,10 +114,6 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 });
 
 gulp.task('deploy', ['build'], () => {
-  var revAll = new $.revAll({
-    dontRenameFile: [/^\/.*?.html/g],
-    dontGlobal: [ 'robots.txt', 'favicon.ico']
-  });
   var config = {
     key    : process.env.AWS_ACCESS_KEY_ID,
     secret : process.env.AWS_SECRET_ACCESS_KEY,
@@ -126,7 +122,10 @@ gulp.task('deploy', ['build'], () => {
   };
 
   return gulp.src('dist/**/*')
-    .pipe(revAll.revision())
+    .pipe($.revAll.revision({
+      dontRenameFile: [/^\/.*?.html/g],
+      dontGlobal: [ 'robots.txt', 'favicon.ico']
+    }))
     .pipe($.s3(config, { headers: {'Cache-Control': 'max-age=315360000, no-transform, public'} }))
 });
 
