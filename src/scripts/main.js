@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    var quoutes = [
+    var quotes = [
         {
             author: 'Winston Churchill',
             quote: 'Criticism may not be agreeable, but it is necessary. It fulfills the same function as pain in the human body. It calls attention to an unhealthy state of things.'
@@ -23,9 +23,8 @@
         }
     ];
 
-    var random = Math.floor((Math.random() * quoutes.length)),
-        quote = quoutes[random],
+    var random = Math.floor((Math.random() * quotes.length)),
+        quote = quotes[random],
         template = '<blockquote>{quote}<span class="author">{author}</span></blockquote>';
     document.getElementsByTagName('footer')[0].innerHTML = template.replace('{quote}', quote.quote).replace('{author}', quote.author);
-
 })();

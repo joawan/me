@@ -1,19 +1,17 @@
 # /me
 
-Built with [Yeoman webapp generator](https://github.com/yeoman/generator-webapp), using [gulp](http://gulpjs.com/) and [libsass](http://sass-lang.com/libsass).
+Built with [11ty](https://www.11ty.dev/) using
+
+* [sass](https://sass-lang.com/)
+* [fontello](https://fontello.com/)
 
 ### Tasks
 ```
-$ gulp serve
+$ npm run serve
 ```
  Setups server, watchers and livereload for faster coding
 
 ```
-$ gulp build
+$ npm run build
 ```
  Builds, concats, minifies, ..., to dist directory
-
-```
-$ gulp deploy
-```
- Builds, concats, minifies, ..., to dist directory, and then deploys to S3.
